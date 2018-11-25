@@ -10,6 +10,8 @@
 </template>
 
 <script>
+import { TweenMax } from 'gsap';
+
 export default {
   data() {
     return {
@@ -21,9 +23,7 @@ export default {
   },
   mounted() {
     this.canvas = this.$refs.canvas;
-    this.ctx = this.canvas.getContext('2d');
     this.resizeHandler();
-
     window.addEventListener('resize', () => {
       this.resizeHandler();
     });
@@ -43,40 +43,40 @@ export default {
       const clientPositionY = event.offsetY;
 
       const createCircle = () => {
-        // circleの大きさ
-        let radius = 1;
-        // 透過度
-        let globalAlpha = 1;
-        const color = '#fff';
-        const render = () => {
-          this.ctx.clearRect(
-            0,
-            0,
-            this.canvasSize.width,
-            this.canvasSize.height
-          );
-          window.requestAnimationFrame(render);
-          if (globalAlpha <= 0) return;
+        const ctx = this.canvas.getContext('2d');
+        const init = {
+          radius: 1,
+          globalAlpha: 1,
+          color: '#fff'
+        };
+        const circle = init;
+        TweenMax.to(circle, 1, {
+          radius: 50,
+          globalAlpha: 0,
+          ease: Strong.easeInOut,
+          onUpdate() {
+            render();
+          }
+        });
 
-          this.ctx.beginPath();
-          this.ctx.strokeStyle = color;
-          this.ctx.arc(
+        const render = () => {
+          ctx.save();
+          ctx.clearRect(0, 0, this.canvasSize.width, this.canvasSize.height);
+          ctx.beginPath();
+          ctx.strokeStyle = circle.color;
+          ctx.arc(
             clientPositionX,
             clientPositionY,
-            radius,
+            circle.radius,
             0,
             Math.PI * 2,
             false
           );
-          this.ctx.globalAlpha = globalAlpha;
-          this.ctx.stroke();
-
-          radius = radius + 2;
-          globalAlpha = globalAlpha - 0.025;
+          ctx.globalAlpha = circle.globalAlpha;
+          ctx.stroke();
+          ctx.restore();
         };
-        render();
       };
-
       createCircle();
     }
   }
