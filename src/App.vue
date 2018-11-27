@@ -4,6 +4,7 @@
       <ul>
         <li><router-link to="/" exact>トップ</router-link></li>
         <li><router-link to="/full-canvas">フルキャンバス</router-link></li>
+        <li><router-link to="/tween-max-to">TweenMaxTo</router-link></li>
       </ul>
     </nav>
     <main><router-view /></main>
