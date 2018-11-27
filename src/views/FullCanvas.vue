@@ -4,7 +4,7 @@
       ref="canvas"
       :width="canvasSize.width"
       :height="canvasSize.height"
-      @click="clickAction"
+      @mousedown="clickAction"
     ></canvas>
   </div>
 </template>
@@ -42,42 +42,78 @@ export default {
       const clientPositionX = event.offsetX;
       const clientPositionY = event.offsetY;
 
-      const createCircle = () => {
+      const render = () => {
         const ctx = this.canvas.getContext('2d');
-        const init = {
-          radius: 1,
-          globalAlpha: 1,
-          color: '#fff'
-        };
-        const circle = init;
-        TweenMax.to(circle, 1, {
-          radius: 50,
-          globalAlpha: 0,
-          ease: Strong.easeInOut,
-          onUpdate() {
-            render();
-          }
-        });
-
-        const render = () => {
+        ctx.clearRect(0, 0, this.canvasSize.width, this.canvasSize.height);
+        const renderCircle = () => {
           ctx.save();
-          ctx.clearRect(0, 0, this.canvasSize.width, this.canvasSize.height);
           ctx.beginPath();
-          ctx.strokeStyle = circle.color;
+          ctx.strokeStyle = circle.circleColor;
           ctx.arc(
             clientPositionX,
             clientPositionY,
-            circle.radius,
+            circle.circleRadius,
             0,
             Math.PI * 2,
             false
           );
-          ctx.globalAlpha = circle.globalAlpha;
+          ctx.globalAlpha = circle.circleGlobalAlpha;
+          ctx.lineWidth = 5;
           ctx.stroke();
           ctx.restore();
         };
+
+        const renderParticle = () => {
+          ctx.save();
+          ctx.beginPath();
+          ctx.fillStyle = 'red';
+          ctx.arc(
+            particle.particleMoveX,
+            particle.particleMoveY,
+            particle.particleRadius,
+            0,
+            Math.PI * 2,
+            false
+          );
+          ctx.fill();
+          ctx.restore();
+        };
+        renderCircle();
+        renderParticle();
       };
-      createCircle();
+
+      const init = {
+        circle: {
+          circleRadius: 1,
+          circleGlobalAlpha: 0.5,
+          circleColor: '#fff'
+        },
+        particle: {
+          particleRadius: 20,
+          particleColor: ['#fff', '#000'],
+          particleAmount: 32,
+          particleMoveX: clientPositionX,
+          particleMoveY: clientPositionY
+        }
+      };
+
+      const moveX = clientPositionX + Math.random() * (45 - -90) + -45;
+      const moveY = clientPositionY + Math.random() * (45 - -90) + -45;
+
+      const { circle } = { ...init };
+      const { particle } = { ...init };
+
+      TweenMax.to([circle, particle], 1, {
+        circleRadius: 50,
+        circleGlobalAlpha: 0,
+        particleRadius: 0,
+        particleMoveX: moveX,
+        particleMoveY: moveY,
+        ease: Strong.easeOut,
+        onUpdate() {
+          render();
+        }
+      });
     }
   }
 };
@@ -91,6 +127,6 @@ export default {
   z-index: -1;
   width: 100vw;
   height: 100vh;
-  background-color: #222;
+  background-color: #272c35;
 }
 </style>
