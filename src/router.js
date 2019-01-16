@@ -3,6 +3,7 @@ import Router from 'vue-router';
 import Home from './views/Home.vue';
 import FullCanvas from './views/FullCanvas.vue';
 import TweenMaxTo from './views/TweenMaxTo.vue';
+import AnimeJs from './views/AnimeJs.vue';
 
 Vue.use(Router);
 
@@ -34,6 +35,11 @@ export default new Router({
       path: '/tween-max-to',
       name: 'tween-max-to',
       component: TweenMaxTo
+    },
+    {
+      path: '/anime-js',
+      name: 'anime-js',
+      component: AnimeJs
     }
   ]
 });
