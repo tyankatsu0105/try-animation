@@ -14,7 +14,7 @@ export default {
   },
   methods: {
     clickAction() {
-      TweenMax.to(this.target, 10, {
+      TweenMax.to(this.target, 3, {
         startAt: {
           left: '100px',
           rotation: 0
@@ -22,9 +22,7 @@ export default {
         left: '1000px',
         backgroundColor: 'blue',
         rotation: 360,
-        repeat: -1,
-        yoyo: true,
-        delay: 1,
+        delay: 0,
         // @see https://greensock.com/ease-visualizer
         ease: Bounce.easeOut,
         onUpdate() {
