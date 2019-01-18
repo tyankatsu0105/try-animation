@@ -1,57 +1,22 @@
-# vue-template
+# try-animation
 
-## Project setup
+> My stunning Nuxt.js project
 
-```
-yarn install
-```
+## Build Setup
 
-### Compiles and hot-reloads for development
+```bash
+# install dependencies
+$ yarn install
 
-```
-yarn serve
-```
+# serve with hot reload at localhost:3000
+$ yarn run dev
 
-### Compiles and minifies for production
+# build for production and launch server
+$ yarn run build
+$ yarn start
 
-```
-yarn build
-```
-
-### Lints and fixes files
-
-```
-yarn lint
+# generate static project
+$ yarn run generate
 ```
 
-### Run your unit tests
-
-```
-yarn test:unit
-```
-
-### Run your end-to-end tests
-
-```
-yarn test:e2e
-```
-
-### Commit your change files
-
-```
-yarn commit
-```
-
-### Generate changelog (on master branch)
-
-```
-yarn release:major
-
-or
-
-yarn release:minor
-
-or
-
-yarn release:patch
-```
+For detailed explanation on how things work, checkout [Nuxt.js docs](https://nuxtjs.org).
