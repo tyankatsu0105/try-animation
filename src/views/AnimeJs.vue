@@ -1,7 +1,107 @@
 <template>
   <section>
-    <p class="count">{{ count.text }}%</p>
-    <div :style="graph" class="graph"></div>
+    <div class="grid">
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+    </div>
   </section>
 </template>
 
@@ -21,24 +121,46 @@ export default {
   },
   mounted() {
     this.anime1();
-    this.anime2();
+    // this.anime2();
   },
   methods: {
+    // anime1() {
+    //   anime({
+    //     targets: this.count,
+    //     text: 100,
+    //     round: 1,
+    //     easing: 'easeInOutQuad',
+    //     duration: 1000
+    //   });
+    // },
+    // anime2() {
+    //   anime({
+    //     targets: this.graph,
+    //     width: '100%',
+    //     easing: 'easeInOutQuad',
+    //     duration: 1000
+    //   });
+    // }
     anime1() {
+      const randomColor = (h, s, l, a) => {
+        return `hsla(${h},${s}%,${l}%,${a})`;
+      };
       anime({
-        targets: this.count,
-        text: 100,
-        round: 1,
-        easing: 'easeInOutQuad',
-        duration: 1000
-      });
-    },
-    anime2() {
-      anime({
-        targets: this.graph,
-        width: '100%',
-        easing: 'easeInOutQuad',
-        duration: 1000
+        targets: '.item',
+        duration: 5000,
+        backgroundColor() {
+          return randomColor(
+            anime.random(0, 360),
+            anime.random(0, 100),
+            anime.random(0, 100),
+            1
+          );
+        },
+        scale: [
+          { value: 0, easing: 'easeOutSine', duration: 500 },
+          { value: 1, easing: 'easeInOutQuad', duration: 1200 }
+        ],
+        delay: anime.stagger(200, { grid: [10, 10], from: 'first' })
       });
     }
   }
@@ -50,14 +172,11 @@ section {
   width: 600px;
   margin: 50px auto;
 }
-.count {
-  font-size: 3rem;
-  font-weight: bold;
-  color: #000;
-  text-align: center;
+.grid {
+  display: grid;
+  grid-template: repeat(10, 50px) / repeat(10, 50px);
 }
-.graph {
-  height: 40px;
-  background-color: #000;
+.item {
+  background-color: rgb(0, 0, 0);
 }
 </style>
