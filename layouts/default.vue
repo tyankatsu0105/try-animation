@@ -22,4 +22,8 @@ html {
   box-sizing: border-box;
   margin: 0;
 }
+section {
+  width: 600px;
+  margin: 50px auto;
+}
 </style>

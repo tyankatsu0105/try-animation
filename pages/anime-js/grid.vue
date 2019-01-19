@@ -122,26 +122,8 @@ export default {
   },
   mounted() {
     this.anime1();
-    // this.anime2();
   },
   methods: {
-    // anime1() {
-    //   anime({
-    //     targets: this.count,
-    //     text: 100,
-    //     round: 1,
-    //     easing: 'easeInOutQuad',
-    //     duration: 1000
-    //   });
-    // },
-    // anime2() {
-    //   anime({
-    //     targets: this.graph,
-    //     width: '100%',
-    //     easing: 'easeInOutQuad',
-    //     duration: 1000
-    //   });
-    // }
     anime1() {
       const randomColor = (h, s, l, a) => {
         return `hsla(${h},${s}%,${l}%,${a})`;
@@ -169,10 +151,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-section {
-  width: 600px;
-  margin: 50px auto;
-}
 .grid {
   display: grid;
   grid-template: repeat(10, 50px) / repeat(10, 50px);
