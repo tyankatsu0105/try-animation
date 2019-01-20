@@ -7,6 +7,7 @@
       <li><nuxt-link to="/anime-js/progress3">progress3</nuxt-link></li>
       <li><nuxt-link to="/anime-js/overlay">overlay</nuxt-link></li>
       <li><nuxt-link to="/anime-js/shadow">shadow</nuxt-link></li>
+      <li><nuxt-link to="/anime-js/pop">pop</nuxt-link></li>
     </ol>
   </div>
 </template>
