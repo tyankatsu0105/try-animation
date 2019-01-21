@@ -8,6 +8,7 @@
       <li><nuxt-link to="/anime-js/overlay">overlay</nuxt-link></li>
       <li><nuxt-link to="/anime-js/shadow">shadow</nuxt-link></li>
       <li><nuxt-link to="/anime-js/pop">pop</nuxt-link></li>
+      <li><nuxt-link to="/anime-js/svg-text">svg-text</nuxt-link></li>
     </ol>
   </div>
 </template>
