@@ -9,6 +9,8 @@
       <li><nuxt-link to="/anime-js/shadow">shadow</nuxt-link></li>
       <li><nuxt-link to="/anime-js/pop">pop</nuxt-link></li>
       <li><nuxt-link to="/anime-js/svg-text">svg-text</nuxt-link></li>
+      <li><nuxt-link to="/anime-js/rotate">rotate</nuxt-link></li>
+      <li><nuxt-link to="/anime-js/pop2">pop2</nuxt-link></li>
     </ol>
   </div>
 </template>

@@ -10,6 +10,13 @@ module.exports = {
     'prettier/vue'
   ],
   rules: {
+    'import/no-unresolved': [
+      2,
+      {
+        ignore: ['^@']
+      }
+    ],
+    'import/extensions': 0,
     'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     'vue/html-closing-bracket-spacing': 'error',
