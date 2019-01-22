@@ -32,7 +32,11 @@ export default {
         targets: '.svg path',
         strokeDashoffset: [anime.setDashoffset, 0],
         easing: 'easeInOutSine',
-        duration: 10000
+        duration: 5000,
+        delay: 2000,
+        autoplay: true,
+        loop: true,
+        direction: 'alternate'
       });
     }
   }
