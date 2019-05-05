@@ -119,7 +119,6 @@ $chromatic-aberration-color-sub: complement($chromatic-aberration-color-main);
       width: 100%;
       height: 100%;
       content: attr(data-text);
-      // background: #000;
     }
 
     &::before {
