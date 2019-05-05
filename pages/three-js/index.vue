@@ -2,6 +2,9 @@
   <div>
     <ol>
       <li><nuxt-link to="/three-js/quickstart">quickstart</nuxt-link></li>
+      <li>
+        <nuxt-link to="/three-js/material_basic">material_basic</nuxt-link>
+      </li>
     </ol>
     <p>
       参考:
