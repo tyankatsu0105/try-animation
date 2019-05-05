@@ -5,6 +5,9 @@
       <li>
         <nuxt-link to="/three-js/material_basic">material_basic</nuxt-link>
       </li>
+      <li>
+        <nuxt-link to="/three-js/geometry_general">geometry_general</nuxt-link>
+      </li>
     </ol>
     <p>
       参考:
