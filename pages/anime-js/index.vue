@@ -11,6 +11,7 @@
       <li><nuxt-link to="/anime-js/svg-text">svg-text</nuxt-link></li>
       <li><nuxt-link to="/anime-js/rotate">rotate</nuxt-link></li>
       <li><nuxt-link to="/anime-js/pop2">pop2</nuxt-link></li>
+      <li><nuxt-link to="/anime-js/pop3">pop3</nuxt-link></li>
       <li><nuxt-link to="/anime-js/seek">seek</nuxt-link></li>
     </ol>
   </div>
