@@ -17,7 +17,7 @@
     "cross-env": "^5.2.0",
     "gsap": "^2.0.2",
     "nuxt": "^2.3.4",
-    "three": "^0.104.0"
+    "three": "^0.137.0"
   },
   "devDependencies": {
     "@vue/cli-plugin-eslint": "^3.3.0",
